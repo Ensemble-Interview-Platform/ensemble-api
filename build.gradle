@@ -43,12 +43,12 @@ jib {
 	to {
 		image = "545059878782.dkr.ecr.ap-northeast-2.amazonaws.com/ensemble-ecr"
 		tags = ["latest"]
-		credHelper = 'gcr'
 	}
 	container {
 		creationTime = "USE_CURRENT_TIMESTAMP"
 		jvmFlags = ['-Dspring.profiles.active=dev', '-XX:+UseContainerSupport', '-Dserver.port=8080', '-Dfile.encoding=UTF-8']
 		ports = ['8080']
+		user = "nobody:nogroup"
 	}
 }
 
