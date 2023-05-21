@@ -38,10 +38,12 @@ dependencies {
 jib {
 	from {
 		image = "adoptopenjdk/openjdk11"
+		credHelper = 'ecr-login'
 	}
 	to {
 		image = "545059878782.dkr.ecr.ap-northeast-2.amazonaws.com/ensemble-ecr"
 		tags = ["latest"]
+		credHelper = 'gcr'
 	}
 	container {
 		creationTime = "USE_CURRENT_TIMESTAMP"
