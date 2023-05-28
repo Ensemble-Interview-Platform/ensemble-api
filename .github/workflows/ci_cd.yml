@@ -31,7 +31,7 @@ jobs:
           java-version: 11
 
       - name: Build with Gradle
-        run: ./gradlew -Pdev clean jib
+        run: ./gradlew clean jib
 
       - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1

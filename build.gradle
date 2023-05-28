@@ -2,7 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '2.7.11'
 	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
-	id 'com.google.cloud.tools.jib' version '1.8.0'
+	id 'com.google.cloud.tools.jib' version '3.1.4'
 }
 
 group = 'ensemble'
@@ -37,18 +37,18 @@ dependencies {
 
 jib {
 	from {
-		image = "adoptopenjdk/openjdk11"
-		credHelper = 'ecr-login'
+		image = 'adoptopenjdk/openjdk11'
 	}
 	to {
-		image = "545059878782.dkr.ecr.ap-northeast-2.amazonaws.com/ensemble-ecr"
-		tags = ["latest"]
+		image = '545059878782.dkr.ecr.ap-northeast-2.amazonaws.com/ensemble-ecr'
+		tags = ['latest', "${project.version}".toString()]
+		credHelper = 'ecr-login'
 	}
 	container {
-		creationTime = "USE_CURRENT_TIMESTAMP"
-		jvmFlags = ['-Dspring.profiles.active=dev', '-XX:+UseContainerSupport', '-Dserver.port=8080', '-Dfile.encoding=UTF-8']
+		creationTime = 'USE_CURRENT_TIMESTAMP'
+		jvmFlags = ['-Dspring.profiles.active=prod', '-XX:+UseContainerSupport', '-Dserver.port=8080', '-Dfile.encoding=UTF-8']
 		ports = ['8080']
-		user = "nobody:nogroup"
+		user = 'nobody:nogroup'
 	}
 }
 
