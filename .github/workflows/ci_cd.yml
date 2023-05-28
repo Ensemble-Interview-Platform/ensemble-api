@@ -37,7 +37,7 @@ jobs:
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: task-definition.json
-          service: test-service
-          cluster: test-cluster
+          service: arn:aws:ecs:ap-northeast-2:545059878782:service/ensemble-cluster/ensemble-cluster-service-1
+          cluster: arn:aws:ecs:ap-northeast-2:545059878782:cluster/ensemble-cluster
           wait-for-service-stability: true
 
