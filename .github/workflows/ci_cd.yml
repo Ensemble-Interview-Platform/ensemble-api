@@ -33,11 +33,15 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew clean jib
 
+      - name: Download task definition
+        run: |
+          aws ecs describe-task-definition --task-definition ensemble-TD --query taskDefinition > task-definition.json
+
       - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: task-definition.json
-          service: ensemble-cluster-2-service
-          cluster: ensemble-cluster-2
+          service: ensemble-cluster-service-1
+          cluster: ensemble-cluster
           wait-for-service-stability: true
 
