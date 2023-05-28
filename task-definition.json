@@ -1,5 +1,5 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:545059878782:task-definition/ensemble-TD:1",
+    "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:545059878782:task-definition/ensemble-TD:4",
     "containerDefinitions": [
         {
             "name": "ensemble-ecr",
@@ -7,25 +7,23 @@
             "cpu": 0,
             "portMappings": [
                 {
-                    "name": "ensesmble-ecr-80-tcp",
                     "containerPort": 80,
                     "hostPort": 80,
                     "protocol": "tcp",
+                    "name": "ensesmble-ecr-80-tcp",
                     "appProtocol": "http"
                 }
             ],
             "essential": true,
             "environment": [],
-            "environmentFiles": [],
             "mountPoints": [],
-            "volumesFrom": [],
-            "ulimits": []
+            "volumesFrom": []
         }
     ],
     "family": "ensemble-TD",
     "executionRoleArn": "arn:aws:iam::545059878782:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 1,
+    "revision": 4,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -47,16 +45,15 @@
         "EC2",
         "FARGATE"
     ],
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
+    },
     "requiresCompatibilities": [
         "EC2"
     ],
     "cpu": "1024",
     "memory": "3072",
-    "runtimePlatform": {
-        "cpuArchitecture": "X86_64",
-        "operatingSystemFamily": "LINUX"
-    },
-    "registeredAt": "2023-05-28T07:41:32.551Z",
-    "registeredBy": "arn:aws:iam::545059878782:root",
-    "tags": []
+    "registeredAt": "2023-05-28T18:11:14.121000+09:00",
+    "registeredBy": "arn:aws:iam::545059878782:user/emsemble-new-born"
 }
